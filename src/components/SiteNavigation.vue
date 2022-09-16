@@ -15,6 +15,7 @@
                     class="fa-solid fa-circle-info text-xl 
                     hover:text-weather-secondary 
                     duration-150 cursor-pointer"
+                    @click="toggleModal"
                 ></i>
                 <i 
                     class="fa-solid fa-plus text-xl
@@ -23,7 +24,7 @@
                 ></i>
             </div>
 
-            <BaseModal>
+            <BaseModal :modalActive="modalActive" @close-modal="toggleModal">
                 <div class="text-black">
                     <h1 class="text-2xl mb-1">About:</h1>
                     <p class="mb-4">
@@ -60,7 +61,14 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { RouterLink } from 'vue-router';
 import BaseModal from './BaseModal.vue'
+
+const modalActive = ref(null);
+const toggleModal = () => {
+    modalActive.value = !modalActive.value;
+    // console.log("toggle")
+};
 </script>
 
