@@ -93,8 +93,6 @@ import axios from "axios";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-console.log(route)
-console.log('This is the route ^ \n\n\n')
 const getWeatherData = async () => {
     try {
         const weatherData = await axios.get(
@@ -121,6 +119,5 @@ const getWeatherData = async () => {
 };
 
 const weatherData = await getWeatherData();
-console.log(weatherData)
 </script>
 
