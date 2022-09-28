@@ -17,7 +17,7 @@ import CityCard from "./CityCard.vue";
 
 const savedCities = ref([]);
 const getCities = async () => {
-    if (localStorage.getItem('savedCities')) {
+    if (localStorage.getItem("savedCities")) {
         savedCities.value = JSON.parse(
             localStorage.getItem("savedCities"))
     };
@@ -26,7 +26,7 @@ const getCities = async () => {
     savedCities.value.forEach((city) => {
         requests.push(
             axios.get(
-                `https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&exclude={part}&appid=cb0e2c5ea4c83b9c517301b8e88f8121&units=imperial`
+                `https://api.openweathermap.org/data/2.5/weather?lat=${city.coords.lat}&lon=${city.coords.lng}&appid=cb0e2c5ea4c83b9c517301b8e88f8121&units=imperial`
             )
         );
     });

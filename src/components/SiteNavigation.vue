@@ -23,7 +23,7 @@
                     hover:text-weather-secondary 
                     duration-150 cursor-pointer"
                     @click="addCity"
-                    v-if="route.query.preview"
+                    v-if="route.query"
                 ></i>
             </div>
 
